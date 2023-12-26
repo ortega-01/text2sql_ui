@@ -10,3 +10,9 @@
     position: relative;
     top: -120px
 }
+
+.resultBox {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black; 
+}

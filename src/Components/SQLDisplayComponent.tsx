@@ -15,7 +15,7 @@ const SQLDisplayComponent: React.FC = () => {
         if (!input) return; // Don't fetch if input is empty
 
         try {
-            const response = await fetch(`https://localhost:7047/OpenAi/GetTest?text=${input}/`);
+            const response = await fetch(`https://localhost:7047/OpenAi/GetSQLWithContext?text=${input}/`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -34,18 +34,17 @@ const SQLDisplayComponent: React.FC = () => {
 
     return (
         <div className="container" >
-            <h1 style={{ paddingBottom: '200px' }}>WELCOME</h1>
+            <h1 style={{ paddingBottom: '200px' }}>Text2SQL</h1>
             <div className="bottom-padding">
                 <TextField
-                    helperText="Enter SQL Request"
+                    label="SQL Request"
                     className="center"
-                    required
                     id="outlined-required"
                     onChange={(event) => setInput(event.target.value)}
                     onKeyPress={handleKeyPress}
                 />
             </div>
-            <div>
+            <div className="bottom-padding">
                 <Button
                     className="center"
                     variant="contained"
@@ -54,7 +53,9 @@ const SQLDisplayComponent: React.FC = () => {
                 >
                     Fetch Data
                 </Button>
-                {data?.text ? <div>{data.text}</div> : <div></div>}
+            </div>
+            <div>
+                {data?.text ? <div className="resultBox">{data.text}</div> : <div></div>}
             </div>
         </div>
     );
