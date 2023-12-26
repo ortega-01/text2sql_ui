@@ -1,0 +1,1 @@
+C:\Users\Danny\Documents\src\text2sql_ui\obj\Debug\text2sql_ui.esproj.CoreCompileInputs.cache

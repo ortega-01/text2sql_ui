@@ -1,0 +1,12 @@
+.center {
+    text-align: center;
+}
+
+.bottom-padding {
+    padding-bottom: 20px
+}
+
+.container {
+    position: relative;
+    top: -120px
+}
