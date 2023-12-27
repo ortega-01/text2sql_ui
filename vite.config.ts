@@ -38,7 +38,24 @@ if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    base: "https://ortega-01.github.io/text2sql_ui/",
+    base: "/text2sql_ui/",
     plugins: [plugin()],
-    
+    resolve: {
+        alias: {
+            '@': fileURLToPath(new URL('./src', import.meta.url))
+        }
+    },
+    server: {
+        proxy: {
+            '^/weatherforecast': {
+                target: 'https://localhost:5001/',
+                secure: false
+            }
+        },
+        port: 5173,
+        https: {
+            key: fs.readFileSync(keyFilePath),
+            cert: fs.readFileSync(certFilePath),
+        }
+    }
 })
