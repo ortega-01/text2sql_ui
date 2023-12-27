@@ -38,6 +38,7 @@ if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base: "https://ortega-01.github.io/text2sql_ui/",
     plugins: [plugin()],
     resolve: {
         alias: {
@@ -56,6 +57,5 @@ export default defineConfig({
             key: fs.readFileSync(keyFilePath),
             cert: fs.readFileSync(certFilePath),
         }
-    },
-    base: "./text2sql_ui"
+    }
 })
