@@ -57,5 +57,5 @@ export default defineConfig({
             cert: fs.readFileSync(certFilePath),
         }
     },
-    base: "/text2sql_ui"
+    base: "./text2sql_ui"
 })
